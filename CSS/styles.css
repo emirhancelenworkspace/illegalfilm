@@ -1,0 +1,373 @@
+/* Genel body ayarları: arka plan koyu, yazı rengi beyaz, font Arial */
+body {
+  background-color: #121212;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+}
+
+/* Resim kapsayıcısı: taşmaları gizle ve köşeleri yuvarla */
+.img-wrapper {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+/* Resim stil ayarları: geçiş animasyonu, tam genişlik ve sabit yükseklik */
+.img-wrapper img {
+  transition: transform 0.4s ease;
+  display: block;
+  width: 100%;
+  height: 250px;
+  object-fit: cover; /* resmi kırpmadan kapsayıcıya sığdır */
+}
+
+/* Film kartındaki başlık: taşan yazıyı üç nokta ile göster */
+.movie-card .card-title {
+  white-space: nowrap;        
+  overflow: hidden;           
+  text-overflow: ellipsis;    
+  max-width: 100%;            
+}
+
+/* Film kartının genişliği */
+.movie-card {
+  width: 200px; 
+}
+
+/* Kart üzerine gelince resim büyüsün ve biraz saydamlaşsın */
+.card:hover .img-wrapper img {
+  transform: scale(1.1);
+  opacity: 0.7;
+}
+
+/* Fade-in yukarı doğru kayan yazı animasyonu başlangıç hali */
+.fade-in-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Fade-in yukarı doğru kayan yazı animasyon tanımı */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Kaydırılabilir içerik alanı: maksimum yükseklik ve dikey kaydırma */
+.scrollable-content {
+  max-height: 200px; 
+  overflow-y: auto;  
+}
+
+/* İletişim kartı stili: koyu arka plan, yuvarlak köşeler, gölge ve ortalama */
+.contact-card {
+  background: #333;
+  border-radius: 15px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Kart hover efektinde hafif yukarı kayma ve gölge artışı */
+.contact-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.8);
+}
+
+/* İletişim resmi daire şeklinde, kenar çizgili ve gölgeli */
+.contact-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4caf50;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px #4caf50;
+}
+
+/* İletişim adı: büyük ve yeşil */
+.contact-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: green;
+}
+
+/* İletişim rolü: italik ve açık yeşil ton */
+.contact-role {
+  font-size: 1rem;
+  font-style: italic;
+  color: #a5d6a7;
+  margin-bottom: 1rem;
+}
+
+/* Sosyal medya linkleri: yuvarlak arka plan, gölgeler ve geçiş animasyonu */
+.social-links a {
+  display: inline-block;
+  color: #eee;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  padding: 10px 15px;
+  border-radius: 50%;
+  background: #444;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+/* Hover durumunda sosyal ikonları yeşile döner ve gölge artar */
+.social-links a:hover {
+  color: #fff;
+  background-color: #4caf50;
+  box-shadow: 0 5px 15px #4caf50;
+  text-decoration: none;
+}
+
+/* E-posta linki stili */
+.email-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 1rem;
+  color: #a5d6a7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/* E-posta linki hover efekti */
+.email-link:hover {
+  color: #4caf50;
+}
+
+/* Küçük ekranlarda iletişim kartları alt alta */
+@media (max-width: 767px) {
+  .contact-card {
+    margin-bottom: 2rem;
+  }
+}
+
+/* Kayıt ve giriş formu label'larının rengi ve kalınlığı */
+#registerForm, #loginForm label {
+  font-weight: 600;
+  color: #a5d6a7;
+}
+
+/* Kayıt ve giriş formu inputlarının koyu arka plan ve yeşil sınırları */
+#registerForm input.form-control, #loginForm input.form-control{
+  background-color: #222;
+  border: 1px solid #4caf50;
+  color: #eee;
+  transition: border-color 0.3s ease;
+}
+
+/* Focus olduğunda inputun sınırı ve gölgesi yeşil olur */
+#registerForm input.form-control:focus, #loginForm input.form-control:focus {
+  border-color: #81c784;
+  box-shadow: 0 0 8px #81c784;
+  background-color: #121212;
+  color: #fff;
+}
+
+/* Başarılı buton yeşil ve geçiş animasyonlu */
+.btn-success {
+  background-color: green;
+  border: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+/* Buton hoverda daha açık yeşil olur */
+.btn-success:hover {
+  background-color: #70ed76;
+}
+
+/* Kayıt ve hata mesajları kalın ve küçük puntolu */
+#registerError, #errorMsg  {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Şifre göster/gizle ikonları stili ve konumu */
+#togglePassword, #toggleConfirmPassword {
+  font-size: 1.2rem;
+  color: #4caf50;
+  transition: color 0.3s ease;
+  top: 42px;
+  right: 10px; 
+  cursor: pointer; 
+  color: #791c1c;
+}
+
+/* Hoverda ikon rengi yeşile döner */
+#togglePassword:hover, #toggleConfirmPassword:hover {
+  color: #81c784;
+  cursor: pointer;
+}
+
+/* Input placeholder metni rengi */
+#registerForm input::placeholder, #loginForm input::placeholder {
+  color: #a5d6a7;  
+  opacity: 1;      
+}
+
+/* Özel kart stili: tam genişlik, taşmaları gizle, yuvarlak köşe ve pozisyon */
+.custom-card {
+  width: 100%;
+  overflow: hidden; 
+  cursor: pointer;
+  border-radius: 0.35rem; 
+  position: relative;
+}
+
+/* Kart içindeki resim geçiş efektiyle büyür */
+.custom-card img {
+  transition: transform 0.3s ease;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Kart üzerindeki yarı saydam kaplama */
+.custom-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+/* Kart içindeki ikon ve yazı stili */
+.custom-icon-text {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* İkonun büyüklüğü ve boşluk */
+.custom-icon {
+  font-size: large;
+  margin-right: 0.3rem;
+}
+
+/* Kart içindeki puan metni stili */
+.custom-score {
+  font-size: 0.9rem;
+  font-weight: 700; 
+}
+
+/* Kartın genel stili ve hover efekti */
+.custom-card {
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer; 
+}
+
+.custom-card:hover img {
+  transform: scale(1.1); 
+}
+
+/* Accordion butonlarının küçültülmüş yüksekliği ve paddingi */
+.accordion-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  height: 2rem;
+  line-height: 1.2;
+}
+
+/* Liste öğelerinin işaretçi ve padding ayarı */
+.list-group-item {
+  cursor: default;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+/* Butonların işaretçi pointer olması */
+.list-group-item button {
+  cursor: pointer;
+}
+
+/* Accordion itemlar arası boşluk */
+.accordion-item {
+  margin-bottom: 4px;
+}
+
+/* Accordion gövdesi padding ve font büyüklüğü */
+.accordion-body {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+/* Accordion gövdesindeki warning buton stili */
+.accordion-body .btn-outline-warning {
+  padding: 0.1rem 0.35rem;
+  font-size: 0.7rem;
+  height: 20px;
+  line-height: 1;
+  min-width: auto;
+}
+
+/* Aktif olmayan butonun rengi */
+.accordion-body .btn-outline-warning:not(.collapsed) {
+  background-color: #ffc107;
+  color: #212529;
+  border-color: #ffc107;
+}
+
+/* Accordion butonundaki varsayılan ok simgesi gizlenir */
+.accordion-button::after {
+  display: none;
+}
+
+/* Accordion buton focus, active ve hover durumlarındaki stil */
+.accordion-button:focus,
+.accordion-button:active,
+.accordion-button:hover {
+  box-shadow: none !important;
+  outline: none !important;
+  background-color: #343a40 !important;
+  color: #ffc107 !important;
+}
+
+/* Dizi resim kapsayıcısı: boyut sabit, ortalanmış ve yuvarlak köşeli */
+.series-image-wrapper {
+  width: 300px;
+  height: 400px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background-color: #000; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3%;
+}
+
+/* Dizi resmi kapsayıcıya sığdırılır, yuvarlak köşe uygulanır */
+.series-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 3%;
+}
+
+#FamilyList,
+#ActionList,
+#AnimationList,
+#FantasyList,
+#ComedyList,
+#HorrorList,
+#RomanticList,
+#SeriesList {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+#FamilyList::-webkit-scrollbar,
+#ActionList::-webkit-scrollbar,
+#AnimationList::-webkit-scrollbar,
+#FantasyList::-webkit-scrollbar,
+#ComedyList::-webkit-scrollbar,
+#HorrorList::-webkit-scrollbar,
+#RomanticList::-webkit-scrollbar,
+#SeriesList::-webkit-scrollbar {
+  display: none;
+}
